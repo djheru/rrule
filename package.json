@@ -1,0 +1,24 @@
+{
+  "name": "rrule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib",
+    "prestart": "npm run build",
+    "start": "node ./lib/index.js",
+    "dev": "npm run build && node ./lib/prototype/src/cases.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "moment": "^2.19.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}
