@@ -1,6 +1,8 @@
 import moment from 'moment';
 import { ords, defaultOptions, endDateString, repeatTypes, weekDays, getSetPos } from './utils';
 
+export repeatTypes;
+
 function dailyRRule(options) {
   const { interval, count } = options;
   const ruleArray = [];
