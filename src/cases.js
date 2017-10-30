@@ -1,4 +1,4 @@
-import { parseDaily, parseWeekly, parseMonthly, parseYearly } from './index';
+import rrule, { parseDaily, parseWeekly, parseMonthly, parseYearly } from './index';
 import { repeatTypes } from './utils';
 
 const cases = {
@@ -114,13 +114,17 @@ const cases = {
       endDate: ''
     }
   ]
-}
+};
 
 const main = () => {
-  console.log(cases.parseDaily.map(parseDaily));
-  console.log(cases.parseWeekly.map(parseWeekly));
-  console.log(cases.parseMonthly.map(parseMonthly));
-  console.log(cases.parseYearly.map(parseYearly));
+  /*
+    console.log(cases.parseDaily.map(parseDaily));
+    console.log(cases.parseWeekly.map(parseWeekly));
+    console.log(cases.parseMonthly.map(parseMonthly));
+    console.log(cases.parseYearly.map(parseYearly));
+  */
+  const allCases = cases.parseDaily.concat(cases.parseWeekly, cases.parseMonthly, cases.parseYearly);
+  console.log(allCases.map(rrule));
 };
 
 main();

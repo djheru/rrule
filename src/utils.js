@@ -16,10 +16,8 @@ export const defaultOptions = {
 export const repeatTypes = {
   DAILY: 'DAILY',
   WEEKLY: 'WEEKLY',
-  MONTHLY_MONTHDAY: 'MONTHLY_MONTHDAY',
-  MONTHLY_SETPOS: 'MONTHLY_SETPOS',
-  YEARLY_MONTH_MONTHDAY: 'YEARLY_MONTH_MONTHDAY',
-  YEARLY_MONTH_SETPOS: 'YEARLY_MONTH_SETPOS'
+  MONTHLY: 'MONTHLY',
+  YEARLY: 'YEARLY'
 };
 
 export const weekDays = {

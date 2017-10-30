@@ -218,4 +218,20 @@ export function parseYearly(inputOptions) {
   }
 }
 
+export default function rrule(rruleOptions) {
+  const options = { ...defaultOptions, ...rruleOptions };
+  const repeatTypesArray = Object.keys(repeatTypes);
+  const parseMap = {};
 
+  if (!repeatTypesArray.includes(options.repeatType)) {
+    throw new Error('Invalid repeat type');
+  }
+
+  parseMap.DAILY = parseDaily;
+  parseMap.WEEKLY = parseWeekly;
+  parseMap.MONTHLY = parseMonthly;
+  parseMap.YEARLY = parseYearly;
+
+  const parseMethod = parseMap[options.repeatType];
+  return parseMethod(options);
+}
