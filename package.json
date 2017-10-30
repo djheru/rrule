@@ -2,9 +2,10 @@
   "name": "rrule",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "pretest": "npm run build",
+    "postinstall": "npm run build",
     "test": "node ./lib/cases.js",
     "build": "babel src -d lib"
   },
