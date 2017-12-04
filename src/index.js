@@ -1,7 +1,11 @@
 import moment from 'moment';
 import { ords, defaultOptions, endDateString, repeatTypes, weekDays, getSetPos } from './utils';
 
-export repeatTypes;
+const REPEAT_TYPES = repeatTypes;
+export { REPEAT_TYPES };
+
+const WEEK_DAYS = weekDays;
+export { WEEK_DAYS };
 
 function dailyRRule(options) {
   const { interval, count } = options;
