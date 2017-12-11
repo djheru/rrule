@@ -10,7 +10,8 @@ export const defaultOptions = {
   dayArray: [],
   count: 0, // e.g. occurs 10 times
   startDate: '',
-  endDate: ''
+  endDate: '',
+  endType: ''
 };
 
 export const repeatTypes = {
@@ -18,6 +19,11 @@ export const repeatTypes = {
   WEEKLY: 'WEEKLY',
   MONTHLY: 'MONTHLY',
   YEARLY: 'YEARLY'
+};
+
+export const repeatByTypes = {
+  DOM: 'DOM',
+  DOW: 'DOW'
 };
 
 export const weekDays = {
@@ -29,6 +35,27 @@ export const weekDays = {
   FR: 'Friday',
   SA: 'Saturday'
 };
+
+export const endTypes = { NEVER: 'never', COUNT: 'count', DATE: 'date' };
+
+export function parseVariations(options) {
+  let { count, dayArray, endDate, endType, interval, repeatByType, repeatType, startDate } = { ...options };
+  if (repeatType === repeatTypes.MONTHLY) {
+    if (repeatByType === repeatByTypes.DOM) {
+      dayArray = [];
+    }
+  }
+  if (endType === endTypes.COUNT) {
+    endDate = '';
+  } else if (endType === endTypes.DATE) {
+    count = 0;
+  } else {
+    endDate = '';
+    count = 0;
+  }
+
+  return { count, dayArray, endDate, endType, interval, repeatByType, repeatType, startDate };
+}
 
 export function getSetPos(startDate, dayArray) {
   const startDay = moment(startDate).format('dd').toUpperCase();

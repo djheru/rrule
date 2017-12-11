@@ -1,5 +1,5 @@
-import rrule, { parseDaily, parseWeekly, parseMonthly, parseYearly } from './index';
-import { repeatTypes } from './utils';
+import rrule from './index';
+import { endTypes, repeatByTypes, repeatTypes } from './utils';
 
 const cases = {
   parseDaily: [
@@ -78,6 +78,26 @@ const cases = {
       count: 0,
       startDate: '2017-10-29',
       endDate: ''
+    },
+    { //
+      repeatType: repeatTypes.MONTHLY,
+      repeatByType: repeatByTypes.DOM,
+      endType: endTypes.COUNT,
+      interval: 1,
+      dayArray: ['SU', 'MO', 'TH'],
+      count: 10,
+      startDate: '2018-10-19',
+      endDate: '2019-09-10'
+    },
+    { //
+      repeatType: repeatTypes.MONTHLY,
+      repeatByType: repeatByTypes.DOW,
+      endType: endTypes.DATE,
+      interval: 1,
+      dayArray: ['SU', 'MO', 'TH'],
+      count: 10,
+      startDate: '2017-10-19',
+      endDate: '2018-09-10'
     }
   ],
   parseYearly: [

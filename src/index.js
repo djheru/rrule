@@ -1,11 +1,27 @@
 import moment from 'moment';
-import { ords, defaultOptions, endDateString, repeatTypes, weekDays, getSetPos } from './utils';
+import {
+  ords,
+  defaultOptions,
+  endDateString,
+  endTypes,
+  repeatByTypes,
+  repeatTypes,
+  weekDays,
+  getSetPos,
+  parseVariations
+} from './utils';
 
 const REPEAT_TYPES = repeatTypes;
 export { REPEAT_TYPES };
 
+const REPEAT_BY_TYPES = repeatByTypes;
+export { REPEAT_BY_TYPES };
+
 const WEEK_DAYS = weekDays;
 export { WEEK_DAYS };
+
+const END_TYPES = endTypes;
+export { END_TYPES };
 
 function dailyRRule(options) {
   const { interval, count } = options;
@@ -225,7 +241,7 @@ export function parseYearly(inputOptions) {
 }
 
 export default function rrule(rruleOptions) {
-  const options = { ...defaultOptions, ...rruleOptions };
+  const options = parseVariations({ ...defaultOptions, ...rruleOptions });
   const repeatTypesArray = Object.keys(repeatTypes);
   const parseMap = {};
 
