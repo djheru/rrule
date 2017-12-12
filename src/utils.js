@@ -40,7 +40,7 @@ export const endTypes = { NEVER: 'never', COUNT: 'count', DATE: 'date' };
 
 export function parseVariations(options) {
   let { count, dayArray, endDate, endType, interval, repeatByType, repeatType, startDate } = { ...options };
-  if (repeatType === repeatTypes.MONTHLY) {
+  if ([repeatTypes.MONTHLY, repeatTypes.WEEKLY].includes(repeatType)) {
     if (repeatByType === repeatByTypes.DOM) {
       dayArray = [];
     }

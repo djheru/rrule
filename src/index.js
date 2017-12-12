@@ -91,7 +91,6 @@ export function parseWeekly(inputOptions) {
   if (dayArray.length > 0) {
     stringArray.push('on');
     if (dayArray.length > 1) {
-      console.log(dayArray);
       const days = dayArray.map(day => weekDays[day]);
       days.splice(-1, 0, 'and');
       stringArray.push(days.join(' '));
@@ -158,7 +157,9 @@ export function parseMonthly(inputOptions) {
       'last' : `${setPos}${ords(parseInt(setPos, 10))}`;
     const days = dayArray
       .map(day => weekDays[day]);
+    if (dayArray.length > 1) {
       days.splice(-1, 0, 'and');
+    }
     onThe = `${ord} ${days.join(' ')} of the month`;
   }
   stringArray.push(onThe);
