@@ -91,6 +91,7 @@ export function parseWeekly(inputOptions) {
   if (dayArray.length > 0) {
     stringArray.push('on');
     if (dayArray.length > 1) {
+      console.log(dayArray);
       const days = dayArray.map(day => weekDays[day]);
       days.splice(-1, 0, 'and');
       stringArray.push(days.join(' '));
