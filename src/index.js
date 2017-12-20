@@ -33,7 +33,7 @@ function dailyRRule(options) {
   if (!!count) {
     ruleArray.push(`COUNT=${parseInt(count, 10)}`);
   }
-  return ruleArray.join(';');
+  return `RRULE:${ruleArray.join(';')};`;
 }
 
 export function parseDaily(inputOptions) {
@@ -75,7 +75,7 @@ function weeklyRRule(options) {
     dayArray.join(',') : moment(startDate).format('dd').toUpperCase();
   ruleArray.push(`BYDAY=${days}`);
 
-  return ruleArray.join(';');
+  return `RRULE:${ruleArray.join(';')};`;
 }
 
 export function parseWeekly(inputOptions) {
@@ -133,7 +133,7 @@ function monthlyRRule(options) {
     ruleArray.push(`BYMONTHDAY=${moment(startDate).format('DD')}`)
   }
 
-  return ruleArray.join(';');
+  return `RRULE:${ruleArray.join(';')};`;
 }
 
 export function parseMonthly(inputOptions) {
@@ -199,7 +199,7 @@ function yearlyRRule(options) {
     ruleArray.push(``);
   }
 
-  return ruleArray.join(';');
+  return `RRULE:${ruleArray.join(';')};`;
 }
 
 export function parseYearly(inputOptions) {
