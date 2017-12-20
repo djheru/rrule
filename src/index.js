@@ -130,7 +130,7 @@ function monthlyRRule(options) {
     const byDay = dayArray.map(d => `${setPos}${d}`).join(',');
     ruleArray.push(`BYDAY=${byDay}`);
   } else {
-    ruleArray.push(``)
+    ruleArray.push(`BYMONTHDAY=${moment(startDate).format('DD')}`)
   }
 
   return ruleArray.join(';');
