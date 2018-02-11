@@ -1,11 +1,11 @@
 {
   "name": "recurrence-rules",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
     "pretest": "npm run build",
-    "postinstall": "npm run build",
+    "postinstall": "npm run build && rm -rf ./src",
     "test": "node ./lib/cases.js",
     "build": "babel src -d lib"
   },
